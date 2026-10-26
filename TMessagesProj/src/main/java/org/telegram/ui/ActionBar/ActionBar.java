@@ -8,6 +8,8 @@
 
 package org.telegram.ui.ActionBar;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.dpf2;
 import static org.telegram.messenger.AndroidUtilities.find;
@@ -222,6 +224,10 @@ public class ActionBar extends FrameLayout implements FactorAnimator.Target, The
     public void setupGlass(BlurredBackgroundDrawableViewFactory factory,
                            BlurredBackgroundColorProvider colorProvider,
                            boolean isForum) {
+        if (ClassicUi.ClassicHeader) {
+            setBackgroundColor(Theme.getColor(Theme.key_actionBarDefault));
+            return;
+        }
         setBackground(null);
         setClipChildren(false);
         glassMode = true;

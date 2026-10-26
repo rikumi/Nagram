@@ -1,5 +1,7 @@
 package org.telegram.ui.Components.blur3.drawable;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.graphics.Canvas;
@@ -56,6 +58,7 @@ public class BlurredBackgroundDrawableRenderNode extends BlurredBackgroundDrawab
 
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     public void setLiquidGlassEffectAllowed() {
+        if (ClassicUi.DisableLiquidGlassHighlight) return;
         liquidGlassEffect = new LiquidGlassEffect(renderNodeFill);
     }
 

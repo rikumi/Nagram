@@ -8,6 +8,8 @@
 
 package org.telegram.ui.Components;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.dpf2;
 import static org.telegram.messenger.AndroidUtilities.replaceArrows;
@@ -763,6 +765,7 @@ public class ChatAvatarContainer extends FrameLayout implements FactorAnimator.T
 
     private boolean glassMode;
     public void setGlassMode() {
+        if (ClassicUi.ClassicHeader) return;
         if (titleTextView != null) {
             titleTextView.setTextSizePx(dp(17.5f));
         }

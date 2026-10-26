@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AppName">Telegram</string>
-    <string name="AppNameBeta">Telegram Beta</string>
+    <string name="AppName">Rikugram</string>
+    <string name="AppNameBeta">Rikugram Beta</string>
     <string name="LanguageName">English</string>
     <string name="English">English</string>
     <string name="LanguageNameInEnglish">English</string>
@@ -11536,4 +11536,11 @@
     <string name="CreateManagedBotUsernameBotLimit">This bot already has a Premium username. Remove it before adding another.</string>
     <string name="CreateManagedBotUsernameSuffixMissing">The username must end in %1$s.</string>
     <string name="CreateManagedBotUsernameCheckFailed">Couldn\'t check this username. Please try again.</string>
+    <string name="ClassicHeader">Classic header</string>
+    <string name="ClassicTopPanels">Classic pinned and playback bars</string>
+    <string name="ClassicInput">Classic input panel</string>
+    <string name="ClassicTabs">Classic bottom navigation</string>
+    <string name="ClassicTabColors">Classic navigation colors</string>
+    <string name="ClassicSettingsIcons">Flat circular settings icons</string>
+    <string name="DisableLiquidGlassHighlight">Disable liquid glass highlights</string>
 </resources>

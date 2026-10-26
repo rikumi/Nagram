@@ -25,6 +25,15 @@ object NaConfig {
     private val configs =
         ArrayList<ConfigItem>()
 
+    // Telegram Mod ports: opt in independently.
+    val classicHeader = addConfig("ClassicHeader", ConfigItem.configTypeBool, false)
+    val classicTopPanels = addConfig("ClassicTopPanels", ConfigItem.configTypeBool, false)
+    val classicInput = addConfig("ClassicInput", ConfigItem.configTypeBool, false)
+    val classicTabs = addConfig("ClassicTabs", ConfigItem.configTypeBool, false)
+    val classicTabColors = addConfig("ClassicTabColors", ConfigItem.configTypeBool, false)
+    val classicSettingsIcons = addConfig("ClassicSettingsIcons", ConfigItem.configTypeBool, false)
+    val disableLiquidGlassHighlight = addConfig("DisableLiquidGlassHighlight", ConfigItem.configTypeBool, false)
+
     // Configs
     val forceCopy =
         addConfig(

@@ -333,6 +333,15 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
     private final AbstractConfigCell dividerAutoDownload = cellGroup.appendCell(new ConfigCellDivider());
 
     // blur
+    private final AbstractConfigCell classicHeaderRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicHeader()));
+    private final AbstractConfigCell classicTopPanelsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTopPanels()));
+    private final AbstractConfigCell classicInputRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicInput()));
+    private final AbstractConfigCell classicTabsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabs()));
+    private final AbstractConfigCell classicTabColorsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabColors()));
+    private final AbstractConfigCell classicSettingsIconsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicSettingsIcons()));
+    private final AbstractConfigCell disableLiquidGlassHighlightRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getDisableLiquidGlassHighlight()));
+    private final AbstractConfigCell dividerClassic = cellGroup.appendCell(new ConfigCellDivider());
+
     private final AbstractConfigCell headerBlur = cellGroup.appendCell(new ConfigCellHeader(LocaleController.getString(R.string.LiteOptionsBlur2)));
     private final AbstractConfigCell disableGlareEffectsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getDisableGlareEffects()));
     private final AbstractConfigCell liquidGlassAngleRow = cellGroup.appendCell(new ConfigCellCustom("LiquidGlassAngle", ConfigCellCustom.CUSTOM_ITEM_LiquidGlassAngle, true));
@@ -473,6 +482,10 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
 
         // Cells: Set OnSettingChanged Callbacks
         cellGroup.callBackSettingsChanged = (key, newValue) -> {
+        if (key.startsWith("Classic") || key.equals("DisableLiquidGlassHighlight")) {
+            tooltip.showWithAction(0, UndoView.ACTION_NEED_RESATRT, null, null);
+            return;
+        }
             if (key.equals(NaConfig.INSTANCE.getCustomIpStrategy().getKey())) {
                 ConnectionsManager.ipStrategy = -1;
                 for (int a : SharedConfig.activeAccounts) {

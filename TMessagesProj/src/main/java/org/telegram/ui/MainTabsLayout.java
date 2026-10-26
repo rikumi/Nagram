@@ -1,5 +1,7 @@
 package org.telegram.ui;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.lerp;
 
@@ -132,6 +134,15 @@ public class MainTabsLayout extends AnimatedLinearLayout {
             }
         }
 
+        if (ClassicUi.ClassicTabs && visibleChildCount > 0) {
+            int index = 0;
+            for (int a = 0; a < getChildCount(); a++) {
+                if (!isViewVisible(getChildAt(a))) continue;
+                int left = Math.round((float) maxTotalWidthForTabs * index / visibleChildCount);
+                int right = Math.round((float) maxTotalWidthForTabs * ++index / visibleChildCount);
+                tabsTextWidthWithMargin[a] = right - left;
+            }
+        }
         int l = 0;
         for (int a = 0, N = getChildCount(); a < N; a++) {
             if (!isViewVisible(getChildAt(a))) {
@@ -309,7 +320,7 @@ public class MainTabsLayout extends AnimatedLinearLayout {
 
     @Override
     protected void dispatchDraw(@NonNull Canvas canvas) {
-        if (drawCustomSelector) {
+        if (drawCustomSelector && !ClassicUi.ClassicTabColors) {
             final float x = animatedLongSelectedViewCenterX + animatedLongSelectedViewOffsetX;
             final float sWidth = getInterpolatedWidthByX(x, this);
             final float sHeight = getHeight() - getPaddingTop() - getPaddingBottom();

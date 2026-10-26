@@ -1,5 +1,7 @@
 package org.telegram.ui.Components.glass;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.dpf2;
 import static org.telegram.messenger.AndroidUtilities.lerp;
@@ -153,7 +155,7 @@ public class GlassTabView extends FrameLayout implements MainTabsLayout.Tab, Fac
     protected void dispatchDraw(@NonNull Canvas canvas) {
         final float viewWidth = hasVisualWidth ? visualWidth : getWidth();
         final float selectedFactor = hasGestureSelectedOverride ? gestureSelectedOverride : isSelectedAnimator.getFloatValue();
-        if (selectedFactor > 0 && !skipDrawSelector) {
+        if (selectedFactor > 0 && !skipDrawSelector && !(ClassicUi.ClassicTabColors && getParent() instanceof org.telegram.ui.MainTabsLayout)) {
             final float alpha = AnimatorUtils.DECELERATE_INTERPOLATOR.getInterpolation(selectedFactor);
 
             paintCounterBackground.setColor(Theme.multAlpha(colorSelected, 0.09f * alpha));
@@ -254,6 +256,10 @@ public class GlassTabView extends FrameLayout implements MainTabsLayout.Tab, Fac
     private boolean needUpdateBackupViewColor;
 
     private void updateColors() {
+        if (ClassicUi.ClassicTabColors && getParent() instanceof org.telegram.ui.MainTabsLayout) {
+            colorSelected = colorSelectedText = Theme.getColor(Theme.key_windowBackgroundWhiteBlackText, resourcesProvider);
+            colorDefault = (Theme.getColor(Theme.key_glass_tabUnselected, resourcesProvider) & 0x00ffffff) | 0x80000000;
+        }
         final int color = ColorUtils.blendARGB(colorDefault, colorSelected, isSelectedAnimator.getFloatValue());
         final int colorText = ColorUtils.blendARGB(colorDefault, colorSelectedText, isSelectedAnimator.getFloatValue());
 

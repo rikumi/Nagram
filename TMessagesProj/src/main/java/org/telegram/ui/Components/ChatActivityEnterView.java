@@ -8,6 +8,8 @@
 
 package org.telegram.ui.Components;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static xyz.nextalone.nagram.helper.MessageHelper.canSendAsDice;
 import static xyz.nextalone.nagram.helper.MessageHelper.containsMarkdown;
 import static org.telegram.messenger.AndroidUtilities.dp;
@@ -15689,7 +15691,7 @@ public class ChatActivityEnterView extends FrameLayout implements
                 ((MarginLayoutParams) richDraftPreview.getLayoutParams()).leftMargin = dp(54) + width;
             }
         } else {
-            ((MarginLayoutParams) emojiButton.getLayoutParams()).leftMargin = dp(3);
+            ((MarginLayoutParams) emojiButton.getLayoutParams()).leftMargin = ClassicUi.ClassicInput ? 0 : dp(3);
             if (deleteRichDraftButton != null) {
                 ((MarginLayoutParams) deleteRichDraftButton.getLayoutParams()).leftMargin = dp(3);
             }

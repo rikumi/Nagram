@@ -1,5 +1,7 @@
 package org.telegram.ui.Components.chat;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
@@ -77,9 +79,15 @@ public class ChatInputViewsContainer extends FrameLayout {
     public BlurredBackgroundDrawable blurredBackgroundDrawable;
     private BlurredBackgroundDrawable underKeyboardBackgroundDrawable;
     public void setInputIslandBubbleDrawable(BlurredBackgroundDrawable drawable) {
+
         blurredBackgroundDrawable = drawable;
         blurredBackgroundDrawable.setPadding(dp(7));
         blurredBackgroundDrawable.setRadius(dp(INPUT_BUBBLE_RADIUS));
+        if (ClassicUi.ClassicInput) {
+            blurredBackgroundDrawable.setAlpha(0);
+            blurredBackgroundDrawable.setRadius(0f);
+            drawInputBackground = false;
+        }
     }
 
     public void setUnderKeyboardBackgroundDrawable(BlurredBackgroundDrawable drawable) {
@@ -88,6 +96,10 @@ public class ChatInputViewsContainer extends FrameLayout {
         underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), 0, 0);
         underKeyboardBackgroundDrawable.setThickness(dp(32));
         underKeyboardBackgroundDrawable.setIntensity(0.4f);
+        if (ClassicUi.ClassicInput) {
+            underKeyboardBackgroundDrawable.setAlpha(0);
+            underKeyboardBackgroundDrawable.setRadius(0f, 0f, 0f, 0f);
+        }
     }
 
     public void updateColors() {
@@ -177,7 +189,9 @@ public class ChatInputViewsContainer extends FrameLayout {
                     rightBottomRadius = bottomRight == null ? 0 : bottomRight.getRadius();
                 }
             }
-            underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), rightBottomRadius, leftBottomRadius, true);
+            if (!ClassicUi.ClassicInput) {
+                underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), rightBottomRadius, leftBottomRadius, true);
+            }
         }
     }
 
@@ -236,6 +250,10 @@ public class ChatInputViewsContainer extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (ClassicUi.ClassicInput) {
+            ClassicUi.clearHorizontalInsets(this);
+            ClassicUi.clearHorizontalInsets(inputIslandBubbleContainer);
+        }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         checkBlurredHeight(true);
         checkDrawableBounds();
@@ -245,11 +263,16 @@ public class ChatInputViewsContainer extends FrameLayout {
 
     /* Render */
 
+    private final android.graphics.Paint classicPanelPaint = new android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
     private final Rect tmpRect = new Rect();
     private final RectF tmpRectF = new RectF();
 
     @Override
     protected void dispatchDraw(@NonNull Canvas canvas) {
+        if (ClassicUi.ClassicInput && getInputBubbleHeight() > 0) {
+            ClassicUi.drawPanel(canvas, classicPanelPaint, org.telegram.ui.ActionBar.Theme.getColor(org.telegram.ui.ActionBar.Theme.key_chat_messagePanelBackground),
+                getInputBubbleTop() + bubbleInputTranlationY - dp(4), getWidth(), getHeight(), true);
+        }
         underKeyboardBackgroundDrawable.setBounds(
             0,
             getMeasuredHeight() - (int) imeBottomInset,
@@ -281,7 +304,7 @@ public class ChatInputViewsContainer extends FrameLayout {
 
     @Override
     protected boolean drawChild(@NonNull Canvas canvas, View child, long drawingTime) {
-        final boolean needClip = child == inAppKeyboardBubbleContainer;
+        final boolean needClip = !ClassicUi.ClassicInput && child == inAppKeyboardBubbleContainer;
         if (needClip) {
             canvas.save();
             canvas.clipPath(underKeyboardBackgroundDrawable.getPath());
@@ -320,6 +343,7 @@ public class ChatInputViewsContainer extends FrameLayout {
     }
 
     public void setInputBubbleAlpha(int alpha) {
+        if (ClassicUi.ClassicInput) return;
         if (blurredBackgroundDrawable != null) {
             blurredBackgroundDrawable.setAlpha(alpha);
         }

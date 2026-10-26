@@ -1,5 +1,7 @@
 package org.telegram.ui.Components;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
@@ -35,6 +37,7 @@ public class DialogsActivityTopPanelLayout extends AnimatedLinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        if (ClassicUi.ClassicTopPanels) ClassicUi.clearHorizontalInsets(this);
         checkBoundsAndClipping();
     }
 

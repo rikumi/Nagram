@@ -1,5 +1,7 @@
 package org.telegram.ui.Components;
 
+import xyz.nextalone.nagram.ClassicUi;
+
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
@@ -30,12 +32,14 @@ public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
     BlurredBackgroundDrawable backgroundDrawable;
 
     public void setBlurredBackground(BlurredBackgroundDrawable background) {
+        if (ClassicUi.ClassicTopPanels) return;
         backgroundDrawable = background;
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+        if (ClassicUi.ClassicTopPanels) ClassicUi.clearHorizontalInsets(this);
         checkBoundsAndClipping();
     }
 
@@ -70,7 +74,11 @@ public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
 
         final float r = Math.min(dp(18), Math.min(clipRectF.width(), clipRectF.height()) / 2f);
         clipPath.rewind();
-        clipPath.addRoundRect(clipRectF, r, r, Path.Direction.CW);
+        if (ClassicUi.ClassicTopPanels) {
+            clipPath.addRect(0, 0, getWidth(), getHeight(), Path.Direction.CW);
+        } else {
+            clipPath.addRoundRect(clipRectF, r, r, Path.Direction.CW);
+        }
 
         if (backgroundDrawable != null) {
             backgroundDrawable.setAlpha((int) (bgAlpha * 255));
@@ -106,6 +114,14 @@ public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
     protected void dispatchDraw(@NonNull Canvas canvas) {
         if (getMetadata().getTotalVisibility() == 0) return;
 
+        if (ClassicUi.ClassicTopPanels) {
+            int color = Theme.getColor(Theme.key_chat_topPanelBackground);
+            android.graphics.Paint paint = Theme.fillingPaint(color);
+            int alpha = paint.getAlpha();
+            paint.setAlpha(Math.round(255 * Math.min(1f, getMetadata().getTotalVisibility())));
+            canvas.drawRect(0, 0, getWidth(), clipRectF.bottom, paint);
+            paint.setAlpha(alpha);
+        }
         if (backgroundDrawable != null) {
             backgroundDrawable.draw(canvas);
         }
