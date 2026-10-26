@@ -213,7 +213,7 @@
     <string name="ClassicHeader">Klassik sarlavha paneli</string>
     <string name="ClassicTopPanels">Klassik qadalgan xabar va ijro panellari</string>
     <string name="ClassicInput">Klassik kiritish paneli</string>
-    <string name="ClassicTabs">Klassik quyi navigatsiya</string>
+    <string name="ClassicTabs">Miuix uslubidagi quyi navigatsiya</string>
     <string name="ClassicTabColors">Klassik navigatsiya ranglari</string>
     <string name="ClassicSettingsIcons">Bir rangli doira shaklidagi sozlamalar belgilari</string>
 </resources>

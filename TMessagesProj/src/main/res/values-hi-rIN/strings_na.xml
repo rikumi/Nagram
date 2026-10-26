@@ -228,7 +228,7 @@
     <string name="ClassicHeader">क्लासिक शीर्षक बार</string>
     <string name="ClassicTopPanels">क्लासिक पिन किए गए संदेश और प्लेबैक बार</string>
     <string name="ClassicInput">क्लासिक इनपुट पैनल</string>
-    <string name="ClassicTabs">क्लासिक निचला नेविगेशन बार</string>
+    <string name="ClassicTabs">Miuix शैली का निचला नेविगेशन बार</string>
     <string name="ClassicTabColors">क्लासिक नेविगेशन रंग</string>
     <string name="ClassicSettingsIcons">एकरंगी गोल सेटिंग आइकन</string>
 </resources>

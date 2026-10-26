@@ -408,7 +408,7 @@
     <string name="ClassicHeader">Класичний рядок заголовка</string>
     <string name="ClassicTopPanels">Класичні панелі закріплених повідомлень і відтворення</string>
     <string name="ClassicInput">Класична панель введення</string>
-    <string name="ClassicTabs">Класична нижня навігація</string>
+    <string name="ClassicTabs">Нижня навігація в стилі Miuix</string>
     <string name="ClassicTabColors">Класичні кольори навігації</string>
     <string name="ClassicSettingsIcons">Одноколірні круглі значки налаштувань</string>
 </resources>

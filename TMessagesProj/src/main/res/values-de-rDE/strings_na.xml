@@ -408,7 +408,7 @@
     <string name="ClassicHeader">Klassische Titelleiste</string>
     <string name="ClassicTopPanels">Klassische Leisten für angeheftete Nachrichten und Wiedergabe</string>
     <string name="ClassicInput">Klassisches Eingabefeld</string>
-    <string name="ClassicTabs">Klassische untere Navigation</string>
+    <string name="ClassicTabs">Untere Navigation im Miuix-Stil</string>
     <string name="ClassicTabColors">Klassische Navigationsfarben</string>
     <string name="ClassicSettingsIcons">Einfarbige runde Einstellungssymbole</string>
 </resources>

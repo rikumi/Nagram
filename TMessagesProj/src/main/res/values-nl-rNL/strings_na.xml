@@ -408,7 +408,7 @@
     <string name="ClassicHeader">Klassieke titelbalk</string>
     <string name="ClassicTopPanels">Klassieke balken voor vastgezette berichten en afspelen</string>
     <string name="ClassicInput">Klassiek invoerpaneel</string>
-    <string name="ClassicTabs">Klassieke navigatie onderaan</string>
+    <string name="ClassicTabs">Navigatie onderaan in Miuix-stijl</string>
     <string name="ClassicTabColors">Klassieke navigatiekleuren</string>
     <string name="ClassicSettingsIcons">Effen ronde instellingenpictogrammen</string>
 </resources>

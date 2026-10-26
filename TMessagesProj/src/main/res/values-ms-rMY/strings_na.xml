@@ -362,7 +362,7 @@
     <string name="ClassicHeader">Bar tajuk klasik</string>
     <string name="ClassicTopPanels">Bar mesej disemat dan main balik klasik</string>
     <string name="ClassicInput">Panel input klasik</string>
-    <string name="ClassicTabs">Navigasi bawah klasik</string>
+    <string name="ClassicTabs">Navigasi bawah gaya Miuix</string>
     <string name="ClassicTabColors">Warna navigasi klasik</string>
     <string name="ClassicSettingsIcons">Ikon tetapan bulat berwarna sekata</string>
 </resources>

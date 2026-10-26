@@ -408,7 +408,7 @@
     <string name="ClassicHeader">Bilah judul klasik</string>
     <string name="ClassicTopPanels">Bilah pesan tersemat dan pemutaran klasik</string>
     <string name="ClassicInput">Panel masukan klasik</string>
-    <string name="ClassicTabs">Navigasi bawah klasik</string>
+    <string name="ClassicTabs">Navigasi bawah bergaya Miuix</string>
     <string name="ClassicTabColors">Warna navigasi klasik</string>
     <string name="ClassicSettingsIcons">Ikon pengaturan bulat berwarna polos</string>
 </resources>
