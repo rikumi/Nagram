@@ -24,6 +24,7 @@ import tw.nekomimi.nekogram.config.ConfigItem;
 public class ConfigCellSelectBox extends AbstractConfigCell {
     private final ConfigItem bindConfig;
     private final String[] selectList; // split by \n
+    private final int[] selectValues;
     private final String title;
     private final Runnable onClickCustom;
     private Context ctxCustom;
@@ -31,6 +32,10 @@ public class ConfigCellSelectBox extends AbstractConfigCell {
 
     // default: customTitle=null customOnClick=null
     public ConfigCellSelectBox(String key, ConfigItem bind, Object selectList_s, Runnable customOnClick) {
+        this(key, bind, selectList_s, null, customOnClick);
+    }
+
+    public ConfigCellSelectBox(String key, ConfigItem bind, Object selectList_s, int[] selectValues, Runnable customOnClick) {
         this.bindConfig = bind;
         String key1 = key;
         if (key == null) {
@@ -46,6 +51,10 @@ public class ConfigCellSelectBox extends AbstractConfigCell {
         } else {
             this.selectList = null;
         }
+        if (selectValues != null && (this.selectList == null || selectValues.length != this.selectList.length)) {
+            throw new IllegalArgumentException("Each option must have a stored value");
+        }
+        this.selectValues = selectValues == null ? null : selectValues.clone();
         title = LocaleController.getString(this.key);
         this.onClickCustom = customOnClick;
     }
@@ -66,11 +75,25 @@ public class ConfigCellSelectBox extends AbstractConfigCell {
         return true;
     }
 
+    private int getSelectedIndex() {
+        int value = bindConfig.Int();
+        if (selectValues == null) return value;
+        for (int i = 0; i < selectValues.length; i++) {
+            if (selectValues[i] == value) return i;
+        }
+        return -1;
+    }
+
+    private int getValueForIndex(int index) {
+        return selectValues == null ? index : selectValues[index];
+    }
+
     public void onBindViewHolder(RecyclerView.ViewHolder holder) {
         TextSettingsCell cell = (TextSettingsCell) holder.itemView;
         String valueText = "";
-        if (selectList != null && bindConfig.Int() < selectList.length) {
-            valueText = selectList[bindConfig.Int()];
+        if (selectList != null) {
+            int index = getSelectedIndex();
+            if (index >= 0 && index < selectList.length) valueText = selectList[index];
         }
         cell.setTextAndValue(title, valueText, cellGroup.needSetDivider(this));
     }
@@ -90,9 +113,9 @@ public class ConfigCellSelectBox extends AbstractConfigCell {
         for (int i = 0; i < selectList.length; i++) {
             RadioColorCell cell = new RadioColorCell(context);
             cell.setPadding(AndroidUtilities.dp(4), 0, AndroidUtilities.dp(4), 0);
-            cell.setTag(i);
+            cell.setTag(getValueForIndex(i));
             cell.setCheckColor(Theme.getColor(Theme.key_radioBackground), Theme.getColor(Theme.key_dialogRadioBackgroundChecked));
-            cell.setTextAndValue(selectList[i], bindConfig.Int() == i);
+            cell.setTextAndValue(selectList[i], bindConfig.Int() == getValueForIndex(i));
             linearLayout.addView(cell);
             cell.setOnClickListener(v -> {
                 Integer which = (Integer) v.getTag();
@@ -132,14 +155,15 @@ public class ConfigCellSelectBox extends AbstractConfigCell {
         PopupBuilder builder = new PopupBuilder(view);
 
         builder.setItems(this.selectList, (i, __) -> {
-            bindConfig.setConfigInt(i);
+            int value = getValueForIndex(i);
+            bindConfig.setConfigInt(value);
 
             if (cellGroup.listAdapter != null)
                 cellGroup.listAdapter.notifyItemChanged(cellGroup.rows.indexOf(this));
             if (cellGroup.thisFragment != null)
                 cellGroup.thisFragment.getParentLayout().rebuildAllFragmentViews(false, false);
 
-            cellGroup.runCallback(bindConfig.getKey(), i);
+            cellGroup.runCallback(bindConfig.getKey(), value);
 
             return Unit.INSTANCE;
         });

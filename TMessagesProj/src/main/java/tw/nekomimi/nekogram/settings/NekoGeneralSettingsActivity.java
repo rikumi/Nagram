@@ -265,10 +265,16 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
     private final AbstractConfigCell mainTabsStyleRow = cellGroup.appendCell(new ConfigCellSelectBox(null, NaConfig.INSTANCE.getMainTabsStyle(),
             new String[]{
                     LocaleController.getString(R.string.Default),
-                    LocaleController.getString(R.string.MainTabsStyleTextFree),
-                    LocaleController.getString(R.string.Disable),
                     LocaleController.getString(R.string.MainTabsStyleClassic),
                     LocaleController.getString(R.string.MainTabsStyleMiuix),
+                    LocaleController.getString(R.string.MainTabsStyleTextFree),
+                    LocaleController.getString(R.string.Disable),
+            }, new int[]{
+                    MainTabsStyle.DEFAULT.getValue(),
+                    MainTabsStyle.CLASSIC.getValue(),
+                    MainTabsStyle.MIUIX.getValue(),
+                    MainTabsStyle.TEXT_FREE.getValue(),
+                    MainTabsStyle.DISABLE.getValue(),
             }, null));
     private final AbstractConfigCell hideTabBarPermissionWarningsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getHideTabBarPermissionWarnings()));
     private final AbstractConfigCell showRecentChatsOnTabLongPressRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getShowRecentChatsOnTabLongPress()));
