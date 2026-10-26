@@ -1,17 +1,3 @@
-# Rikugram
-
-An independent fork of [Nagram](https://github.com/NextAlone/Nagram) with optional classic UI patches ported from [Telegram Mod](https://github.com/rikumi/telegram-mod). Not affiliated with the Nagram project.
-
-In **Nagram settings → General**, the seven new switches control the header, pinned/playback bars, input panel, bottom navigation layout, navigation colors, circular settings icons, and liquid glass highlights. All default to off. Restart the app after changing them using the existing restart prompt. The structural options use a process snapshot to avoid partially changing existing views.
-
-The navigation layout preserves Nagram's tab order, visibility settings, and text-free mode. Disabling the options restores upstream behavior after restart. No Xposed or LSPatch is required.
-
-Build: `./gradlew :TMessagesProj:assembleDebug`. Initialize the repository's submodules and Android SDK/NDK dependencies first, following the upstream build configuration. Device appearance has not yet been verified.
-
-The fork uses the distinct Rikugram application name, package ID (`dev.rikumi.rikugram`) and independent R icon. GPL notices and upstream history are retained below.
-
----
-
 # Nagram
 
 Nagram is a third-party Telegram client based on [NekoX](https://web.archive.org/web/20240306062834/https://github.com/NekoX-Dev/NekoX) with some modifications.
