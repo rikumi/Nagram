@@ -1,7 +1,5 @@
 package org.telegram.ui.Components;
 
-import xyz.nextalone.nagram.ClassicUi;
-
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
@@ -20,6 +18,7 @@ import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.blur3.drawable.BlurredBackgroundDrawable;
 
 import me.vkryl.android.animator.ListAnimator;
+import xyz.nextalone.nagram.NaConfig;
 
 public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
     public ChatActivityTopPanelLayout(@NonNull Context context) {
@@ -32,14 +31,14 @@ public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
     BlurredBackgroundDrawable backgroundDrawable;
 
     public void setBlurredBackground(BlurredBackgroundDrawable background) {
-        if (ClassicUi.ClassicTopPanels) return;
+        if (NaConfig.INSTANCE.getClassicTopPanels().Bool()) return;
         backgroundDrawable = background;
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        if (ClassicUi.ClassicTopPanels) ClassicUi.clearHorizontalInsets(this);
+        if (NaConfig.INSTANCE.getClassicTopPanels().Bool()) LayoutHelper.clearHorizontalInsets(this);
         checkBoundsAndClipping();
     }
 
@@ -74,7 +73,7 @@ public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
 
         final float r = Math.min(dp(18), Math.min(clipRectF.width(), clipRectF.height()) / 2f);
         clipPath.rewind();
-        if (ClassicUi.ClassicTopPanels) {
+        if (NaConfig.INSTANCE.getClassicTopPanels().Bool()) {
             clipPath.addRect(0, 0, getWidth(), getHeight(), Path.Direction.CW);
         } else {
             clipPath.addRoundRect(clipRectF, r, r, Path.Direction.CW);
@@ -114,7 +113,7 @@ public class ChatActivityTopPanelLayout extends AnimatedLinearLayout {
     protected void dispatchDraw(@NonNull Canvas canvas) {
         if (getMetadata().getTotalVisibility() == 0) return;
 
-        if (ClassicUi.ClassicTopPanels) {
+        if (NaConfig.INSTANCE.getClassicTopPanels().Bool()) {
             int color = Theme.getColor(Theme.key_chat_topPanelBackground);
             android.graphics.Paint paint = Theme.fillingPaint(color);
             int alpha = paint.getAlpha();

@@ -408,7 +408,6 @@
     <string name="ClassicHeader">Klasické záhlaví</string>
     <string name="ClassicTopPanels">Klasické panely připnutí a přehrávání</string>
     <string name="ClassicInput">Klasický vstupní panel</string>
-    <string name="ClassicTabs">Spodní navigace ve stylu Miuix</string>
-    <string name="ClassicTabColors">Klasické barvy navigace</string>
+    <string name="MainTabsStyleClassic">Klasický</string>
     <string name="ClassicSettingsIcons">Jednobarevné kruhové ikony nastavení</string>
 </resources>

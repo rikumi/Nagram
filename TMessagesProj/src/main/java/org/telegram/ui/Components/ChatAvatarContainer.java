@@ -8,7 +8,7 @@
 
 package org.telegram.ui.Components;
 
-import xyz.nextalone.nagram.ClassicUi;
+
 
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.dpf2;
@@ -74,6 +74,7 @@ import me.vkryl.android.animator.BoolAnimator;
 import me.vkryl.android.animator.FactorAnimator;
 
 import xyz.nextalone.nagram.helper.MessageHelper;
+import xyz.nextalone.nagram.NaConfig;
 
 public class ChatAvatarContainer extends FrameLayout implements FactorAnimator.Target, NotificationCenter.NotificationCenterDelegate {
 
@@ -765,7 +766,7 @@ public class ChatAvatarContainer extends FrameLayout implements FactorAnimator.T
 
     private boolean glassMode;
     public void setGlassMode() {
-        if (ClassicUi.ClassicHeader) return;
+        if (NaConfig.INSTANCE.getClassicHeader().Bool()) return;
         if (titleTextView != null) {
             titleTextView.setTextSizePx(dp(17.5f));
         }

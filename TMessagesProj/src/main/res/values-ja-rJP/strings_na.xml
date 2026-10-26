@@ -408,7 +408,6 @@
     <string name="ClassicHeader">従来のタイトルバー</string>
     <string name="ClassicTopPanels">従来のピン留め・再生バー</string>
     <string name="ClassicInput">従来の入力欄</string>
-    <string name="ClassicTabs">Miuix スタイルの下部ナビゲーション</string>
-    <string name="ClassicTabColors">従来のナビゲーション配色</string>
+    <string name="MainTabsStyleClassic">クラシック</string>
     <string name="ClassicSettingsIcons">単色で円形の設定アイコン</string>
 </resources>

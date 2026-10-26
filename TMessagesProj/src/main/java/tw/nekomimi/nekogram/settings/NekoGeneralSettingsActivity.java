@@ -72,11 +72,13 @@ import tw.nekomimi.nekogram.config.CellGroup;
 import tw.nekomimi.nekogram.config.cell.AbstractConfigCell;
 import tw.nekomimi.nekogram.config.cell.*;
 import xyz.nextalone.nagram.NaConfig;
+import xyz.nextalone.nagram.MainTabsStyle;
 
 @SuppressLint("RtlHardcoded")
 public class NekoGeneralSettingsActivity extends BaseNekoXSettingsActivity {
 
     private ValueAnimator statusBarColorAnimator;
+    private final int initialMainTabsStyle = NaConfig.INSTANCE.getMainTabsStyle().Int();
 
     private final CellGroup a = cellGroup = new CellGroup(this);
 
@@ -265,9 +267,9 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
                     LocaleController.getString(R.string.Default),
                     LocaleController.getString(R.string.MainTabsStyleTextFree),
                     LocaleController.getString(R.string.Disable),
+                    LocaleController.getString(R.string.MainTabsStyleClassic),
+                    LocaleController.getString(R.string.MainTabsStyleMiuix),
             }, null));
-    private final AbstractConfigCell classicTabsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabs()));
-    private final AbstractConfigCell classicTabColorsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabColors()));
     private final AbstractConfigCell hideTabBarPermissionWarningsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getHideTabBarPermissionWarnings()));
     private final AbstractConfigCell showRecentChatsOnTabLongPressRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getShowRecentChatsOnTabLongPress()));
     private final AbstractConfigCell customDialogsMenuRow = cellGroup.appendCell(new ConfigCellSelectBox(NaConfig.INSTANCE.getCustomDialogsMenu().getKey(), null, null, () -> {
@@ -479,10 +481,15 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
 
         // Cells: Set OnSettingChanged Callbacks
         cellGroup.callBackSettingsChanged = (key, newValue) -> {
+            if (key.equals(NaConfig.INSTANCE.getMainTabsStyle().getKey())) {
+                int style = (Integer) newValue;
+                if (MainTabsStyle.isFlat(initialMainTabsStyle) || MainTabsStyle.isFlat(style)) {
+                    tooltip.showWithAction(0, UndoView.ACTION_NEED_RESATRT, null, null);
+                }
+                return;
+            }
             if (key.equals(NaConfig.INSTANCE.getClassicHeader().getKey())
                     || key.equals(NaConfig.INSTANCE.getClassicTopPanels().getKey())
-                    || key.equals(NaConfig.INSTANCE.getClassicTabs().getKey())
-                    || key.equals(NaConfig.INSTANCE.getClassicTabColors().getKey())
                     || key.equals(NaConfig.INSTANCE.getClassicSettingsIcons().getKey())) {
                 tooltip.showWithAction(0, UndoView.ACTION_NEED_RESATRT, null, null);
                 return;

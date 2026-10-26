@@ -1,7 +1,5 @@
 package org.telegram.ui;
 
-import xyz.nextalone.nagram.ClassicUi;
-
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.lerp;
 import static org.telegram.messenger.LocaleController.getString;
@@ -359,13 +357,13 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC
         // 设置底部导航栏高度和边距
         final int tabHeight = isTextFreeMode() ? 36 : DialogsActivity.MAIN_TABS_HEIGHT;
         final int tabMargin = isTextFreeMode() ? 4 : DialogsActivity.MAIN_TABS_MARGIN;
-        final int tabHeightWithMargins = ClassicUi.ClassicTabs ? (isTextFreeMode() ? 48 : 64) : tabHeight + tabMargin * 2;
+        final int tabHeightWithMargins = MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) ? (isTextFreeMode() ? 48 : 64) : tabHeight + tabMargin * 2;
 
         tabsView = new MainTabsLayout(context, resourceProvider);
         tabsView.setClipChildren(false);
         tabsView.setPadding(dp(tabMargin + 4), dp(tabMargin + 4), dp(tabMargin + 4), dp(tabMargin + 4));
-        tabsView.setMaxWidth(ClassicUi.ClassicTabs ? 0 : dp(328 + tabMargin * 2));
-        if (ClassicUi.ClassicTabs) tabsView.setPadding(dp(12), dp(8), dp(12), dp(8));
+        tabsView.setMaxWidth(MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) ? 0 : dp(328 + tabMargin * 2));
+        if (MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int())) tabsView.setPadding(dp(12), dp(8), dp(12), dp(8));
 
         tabs = new GlassTabView[TABS_COUNT + 1];
         if (isEnabledSettingsSlide()) {
@@ -439,7 +437,7 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC
         tabsViewBackground = iBlur3FactoryGlass.create(tabsView, BlurredBackgroundProviderImpl.mainTabs(resourceProvider));
         tabsViewBackground.setRadius(dp(tabHeight / 2f));
         tabsViewBackground.setPadding(dp(tabMargin - 0.334f));
-        tabsView.setBackground(ClassicUi.ClassicTabs ? null : tabsViewBackground);
+        tabsView.setBackground(MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) ? null : tabsViewBackground);
 
         BlurredBackgroundDrawableViewFactory iBlur3FactoryFade = new BlurredBackgroundDrawableViewFactory(iBlur3SourceColor);
         iBlur3FactoryFade.setSourceRootView(viewPositionWatcher, contentView);
@@ -1053,7 +1051,7 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC
         // 根据textFreeMode设置调整底部导航栏高度
         final int tabHeight = isTextFreeMode() ? 36 : DialogsActivity.MAIN_TABS_HEIGHT;
         final int tabMargin = isTextFreeMode() ? 4 : DialogsActivity.MAIN_TABS_MARGIN;
-        final int tabHeightWithMargins = ClassicUi.ClassicTabs ? (isTextFreeMode() ? 48 : 64) : tabHeight + tabMargin * 2;
+        final int tabHeightWithMargins = MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) ? (isTextFreeMode() ? 48 : 64) : tabHeight + tabMargin * 2;
 
         ViewGroup.MarginLayoutParams lp;
         {
@@ -1078,7 +1076,7 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC
             }
         }
 
-        tabsViewWrapper.setPadding(ClassicUi.ClassicTabs ? 0 : systemInsets.left, 0, ClassicUi.ClassicTabs ? 0 : systemInsets.right, navigationBarHeight);
+        tabsViewWrapper.setPadding(MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) ? 0 : systemInsets.left, 0, MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) ? 0 : systemInsets.right, navigationBarHeight);
 
         final WindowInsetsCompat consumed = isUpdateLayoutVisible ?
             insets.inset(0, 0, 0, navigationBarHeight) : insets;
@@ -1367,12 +1365,16 @@ public class MainTabsActivity extends ViewPagerActivity implements NotificationC
     }
 
     private void updateClassicTabsBackground() {
-        if (!ClassicUi.ClassicTabs || tabsViewWrapper == null) return;
+        if (!MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) || tabsViewWrapper == null) return;
         tabsViewWrapper.setBackground(new android.graphics.drawable.Drawable() {
             private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
             @Override public void draw(@NonNull Canvas canvas) {
-                ClassicUi.drawPanel(canvas, paint, getThemedColor(Theme.key_windowBackgroundWhite),
-                    getBounds().top, getBounds().right, getBounds().bottom, true);
+                final int color = getThemedColor(Theme.key_windowBackgroundWhite);
+                paint.setColor(color);
+                canvas.drawRect(getBounds(), paint);
+                paint.setColor(Theme.getContrastDividerColor(color));
+                canvas.drawRect(getBounds().left, getBounds().top, getBounds().right,
+                    getBounds().top + dp(1), paint);
             }
             @Override public void setAlpha(int alpha) { paint.setAlpha(alpha); }
             @Override public void setColorFilter(android.graphics.ColorFilter filter) { paint.setColorFilter(filter); }

@@ -1,7 +1,5 @@
 package org.telegram.ui.Components;
 
-import xyz.nextalone.nagram.ClassicUi;
-
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
@@ -19,6 +17,7 @@ import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.blur3.drawable.BlurredBackgroundDrawable;
 
 import me.vkryl.android.animator.ListAnimator;
+import xyz.nextalone.nagram.NaConfig;
 
 public class DialogsActivityTopPanelLayout extends AnimatedLinearLayout {
     public DialogsActivityTopPanelLayout(@NonNull Context context) {
@@ -37,7 +36,7 @@ public class DialogsActivityTopPanelLayout extends AnimatedLinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        if (ClassicUi.ClassicTopPanels) ClassicUi.clearHorizontalInsets(this);
+        if (NaConfig.INSTANCE.getClassicTopPanels().Bool()) LayoutHelper.clearHorizontalInsets(this);
         checkBoundsAndClipping();
     }
 

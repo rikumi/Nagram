@@ -9139,6 +9139,13 @@ public class Theme {
         return getColor(key, null, true);
     }
 
+    public static int getContrastDividerColor(int background) {
+        float[] hsl = new float[3];
+        ColorUtils.colorToHSL(background, hsl);
+        hsl[2] = hsl[2] < 0.5f ? Math.min(1f, hsl[2] + 0.12f) : Math.max(0f, hsl[2] - 0.12f);
+        return ColorUtils.HSLToColor(hsl);
+    }
+
     public static int getColor(int key, ResourcesProvider provider) {
         if (provider != null) {
             return provider.getColor(key);

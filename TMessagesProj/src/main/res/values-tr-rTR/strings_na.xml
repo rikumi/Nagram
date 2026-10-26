@@ -408,7 +408,6 @@
     <string name="ClassicHeader">Klasik başlık çubuğu</string>
     <string name="ClassicTopPanels">Klasik sabitlenmiş mesaj ve oynatma çubukları</string>
     <string name="ClassicInput">Klasik giriş paneli</string>
-    <string name="ClassicTabs">Miuix tarzı alt gezinme</string>
-    <string name="ClassicTabColors">Klasik gezinme renkleri</string>
+    <string name="MainTabsStyleClassic">Klasik</string>
     <string name="ClassicSettingsIcons">Düz renkli yuvarlak ayar simgeleri</string>
 </resources>

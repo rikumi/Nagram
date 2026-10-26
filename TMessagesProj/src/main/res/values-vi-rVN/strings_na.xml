@@ -408,7 +408,6 @@
     <string name="ClassicHeader">Thanh tiêu đề cổ điển</string>
     <string name="ClassicTopPanels">Thanh tin nhắn đã ghim và phát lại cổ điển</string>
     <string name="ClassicInput">Khung nhập cổ điển</string>
-    <string name="ClassicTabs">Thanh điều hướng dưới cùng phong cách Miuix</string>
-    <string name="ClassicTabColors">Màu điều hướng cổ điển</string>
+    <string name="MainTabsStyleClassic">Cổ điển</string>
     <string name="ClassicSettingsIcons">Biểu tượng cài đặt hình tròn đồng màu</string>
 </resources>

@@ -25,14 +25,6 @@ object NaConfig {
     private val configs =
         ArrayList<ConfigItem>()
 
-    // Telegram Mod ports: opt in independently.
-    val classicHeader = addConfig("ClassicHeader", ConfigItem.configTypeBool, false)
-    val classicTopPanels = addConfig("ClassicTopPanels", ConfigItem.configTypeBool, false)
-    val classicInput = addConfig("ClassicInput", ConfigItem.configTypeBool, false)
-    val classicTabs = addConfig("ClassicTabs", ConfigItem.configTypeBool, false)
-    val classicTabColors = addConfig("ClassicTabColors", ConfigItem.configTypeBool, false)
-    val classicSettingsIcons = addConfig("ClassicSettingsIcons", ConfigItem.configTypeBool, false)
-
     // Configs
     val forceCopy =
         addConfig(
@@ -358,6 +350,12 @@ object NaConfig {
     val disableEmojiDrawLimit =
         addConfig(
             "DisableEmojiDrawLimit",
+            ConfigItem.configTypeBool,
+            false
+        )
+    val classicSettingsIcons =
+        addConfig(
+            "ClassicSettingsIcons",
             ConfigItem.configTypeBool,
             false
         )
@@ -1021,6 +1019,12 @@ object NaConfig {
             ConfigItem.configTypeInt,
             0
         )
+    val classicInput =
+        addConfig(
+            "ClassicInput",
+            ConfigItem.configTypeBool,
+            false
+        )
     val chatActivityNavbarTransparent =
         addConfig(
             "ChatActivityNavbarTransparent",
@@ -1400,6 +1404,18 @@ object NaConfig {
     val useSystemFontInTitle =
         addConfig(
             "UseSystemFontInTitle",
+            ConfigItem.configTypeBool,
+            false
+        )
+    val classicHeader =
+        addConfig(
+            "ClassicHeader",
+            ConfigItem.configTypeBool,
+            false
+        )
+    val classicTopPanels =
+        addConfig(
+            "ClassicTopPanels",
             ConfigItem.configTypeBool,
             false
         )

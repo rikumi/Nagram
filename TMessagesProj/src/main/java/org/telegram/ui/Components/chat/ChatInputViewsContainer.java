@@ -1,11 +1,10 @@
 package org.telegram.ui.Components.chat;
 
-import xyz.nextalone.nagram.ClassicUi;
-
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -20,10 +19,12 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 
 import org.telegram.ui.Components.LayoutHelper;
+import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.blur3.BlurredBackgroundWithFadeDrawable;
 import org.telegram.ui.Components.blur3.drawable.BlurredBackgroundDrawable;
 import org.telegram.ui.Components.inset.InAppKeyboardInsetView;
 import org.telegram.ui.Components.inset.WindowInsetsProvider;
+import xyz.nextalone.nagram.NaConfig;
 
 public class ChatInputViewsContainer extends FrameLayout {
     public static final int INPUT_BUBBLE_RADIUS = 22;
@@ -83,7 +84,7 @@ public class ChatInputViewsContainer extends FrameLayout {
         blurredBackgroundDrawable = drawable;
         blurredBackgroundDrawable.setPadding(dp(7));
         blurredBackgroundDrawable.setRadius(dp(INPUT_BUBBLE_RADIUS));
-        if (ClassicUi.ClassicInput) {
+        if (NaConfig.INSTANCE.getClassicInput().Bool()) {
             blurredBackgroundDrawable.setAlpha(0);
             blurredBackgroundDrawable.setRadius(0f);
             drawInputBackground = false;
@@ -96,7 +97,7 @@ public class ChatInputViewsContainer extends FrameLayout {
         underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), 0, 0);
         underKeyboardBackgroundDrawable.setThickness(dp(32));
         underKeyboardBackgroundDrawable.setIntensity(0.4f);
-        if (ClassicUi.ClassicInput) {
+        if (NaConfig.INSTANCE.getClassicInput().Bool()) {
             underKeyboardBackgroundDrawable.setAlpha(0);
             underKeyboardBackgroundDrawable.setRadius(0f, 0f, 0f, 0f);
         }
@@ -189,7 +190,7 @@ public class ChatInputViewsContainer extends FrameLayout {
                     rightBottomRadius = bottomRight == null ? 0 : bottomRight.getRadius();
                 }
             }
-            if (!ClassicUi.ClassicInput) {
+            if (!NaConfig.INSTANCE.getClassicInput().Bool()) {
                 underKeyboardBackgroundDrawable.setRadius(dp(INPUT_KEYBOARD_RADIUS), dp(INPUT_KEYBOARD_RADIUS), rightBottomRadius, leftBottomRadius, true);
             }
         }
@@ -250,9 +251,9 @@ public class ChatInputViewsContainer extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (ClassicUi.ClassicInput) {
-            ClassicUi.clearHorizontalInsets(this);
-            ClassicUi.clearHorizontalInsets(inputIslandBubbleContainer);
+        if (NaConfig.INSTANCE.getClassicInput().Bool()) {
+            LayoutHelper.clearHorizontalInsets(this);
+            LayoutHelper.clearHorizontalInsets(inputIslandBubbleContainer);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         checkBlurredHeight(true);
@@ -263,15 +264,19 @@ public class ChatInputViewsContainer extends FrameLayout {
 
     /* Render */
 
-    private final android.graphics.Paint classicPanelPaint = new android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG);
+    private final Paint classicPanelPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Rect tmpRect = new Rect();
     private final RectF tmpRectF = new RectF();
 
     @Override
     protected void dispatchDraw(@NonNull Canvas canvas) {
-        if (ClassicUi.ClassicInput && getInputBubbleHeight() > 0) {
-            ClassicUi.drawPanel(canvas, classicPanelPaint, org.telegram.ui.ActionBar.Theme.getColor(org.telegram.ui.ActionBar.Theme.key_chat_messagePanelBackground),
-                getInputBubbleTop() + bubbleInputTranlationY - dp(4), getWidth(), getHeight(), true);
+        if (NaConfig.INSTANCE.getClassicInput().Bool() && getInputBubbleHeight() > 0) {
+            final float top = getInputBubbleTop() + bubbleInputTranlationY - dp(4);
+            final int color = Theme.getColor(Theme.key_chat_messagePanelBackground);
+            classicPanelPaint.setColor(color);
+            canvas.drawRect(0, top, getWidth(), getHeight(), classicPanelPaint);
+            classicPanelPaint.setColor(Theme.getContrastDividerColor(color));
+            canvas.drawRect(0, top, getWidth(), top + dp(1), classicPanelPaint);
         }
         underKeyboardBackgroundDrawable.setBounds(
             0,
@@ -304,7 +309,7 @@ public class ChatInputViewsContainer extends FrameLayout {
 
     @Override
     protected boolean drawChild(@NonNull Canvas canvas, View child, long drawingTime) {
-        final boolean needClip = !ClassicUi.ClassicInput && child == inAppKeyboardBubbleContainer;
+        final boolean needClip = !NaConfig.INSTANCE.getClassicInput().Bool() && child == inAppKeyboardBubbleContainer;
         if (needClip) {
             canvas.save();
             canvas.clipPath(underKeyboardBackgroundDrawable.getPath());
@@ -343,7 +348,7 @@ public class ChatInputViewsContainer extends FrameLayout {
     }
 
     public void setInputBubbleAlpha(int alpha) {
-        if (ClassicUi.ClassicInput) return;
+        if (NaConfig.INSTANCE.getClassicInput().Bool()) return;
         if (blurredBackgroundDrawable != null) {
             blurredBackgroundDrawable.setAlpha(alpha);
         }

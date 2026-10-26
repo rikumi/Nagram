@@ -1,7 +1,5 @@
 package org.telegram.ui;
 
-import xyz.nextalone.nagram.ClassicUi;
-
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.lerp;
 import static org.telegram.messenger.AndroidUtilities.replaceSingleTag;
@@ -1311,7 +1309,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                 }
                 gradient = new LinearGradient(0, 0, 0, dp(28), new int[] { topColor, bottomColor }, new float[] { 0, 1 }, Shader.TileMode.CLAMP);
                 paint.setShader(gradient);
-                if (ClassicUi.ClassicSettingsIcons) {
+                if (NaConfig.INSTANCE.getClassicSettingsIcons().Bool()) {
                     paint.setShader(null);
                     paint.setColor(androidx.core.graphics.ColorUtils.blendARGB(topColor, bottomColor, 0.5f));
                 }
@@ -1324,13 +1322,13 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
 
             @Override
             public void draw(@NonNull Canvas canvas) {
-                final float r = ClassicUi.ClassicSettingsIcons ? Math.min(getBounds().width(), getBounds().height()) / 2f : dp(10);
+                final float r = NaConfig.INSTANCE.getClassicSettingsIcons().Bool() ? Math.min(getBounds().width(), getBounds().height()) / 2f : dp(10);
                 AndroidUtilities.rectTmp.set(getBounds());
                 matrix.reset();
                 matrix.postTranslate(AndroidUtilities.rectTmp.left, AndroidUtilities.rectTmp.top);
                 canvas.drawRoundRect(AndroidUtilities.rectTmp, r, r, paint);
 
-                if (border && !ClassicUi.ClassicSettingsIcons) {
+                if (border && !NaConfig.INSTANCE.getClassicSettingsIcons().Bool()) {
                     final float sw = dp(1);
                     strokePaint.setStrokeWidth(sw);
                     matrix.reset();

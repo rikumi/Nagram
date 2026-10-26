@@ -408,7 +408,6 @@
     <string name="ClassicHeader">Klassisk titellinje</string>
     <string name="ClassicTopPanels">Klassiske linjer til fastgjorte beskeder og afspilning</string>
     <string name="ClassicInput">Klassisk inputpanel</string>
-    <string name="ClassicTabs">Navigation i bunden i Miuix-stil</string>
-    <string name="ClassicTabColors">Klassiske navigationsfarver</string>
+    <string name="MainTabsStyleClassic">Klassisk</string>
     <string name="ClassicSettingsIcons">Ensfarvede runde indstillingsikoner</string>
 </resources>

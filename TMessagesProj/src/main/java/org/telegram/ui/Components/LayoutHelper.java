@@ -11,6 +11,7 @@ package org.telegram.ui.Components;
 import android.annotation.SuppressLint;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -29,6 +30,16 @@ public class LayoutHelper {
     
     private static int getSize(float size) {
         return (int) (size < 0 ? size : AndroidUtilities.dp(size));
+    }
+
+    public static void clearHorizontalInsets(View view) {
+        if (view.getPaddingLeft() != 0 || view.getPaddingRight() != 0) {
+            view.setPadding(0, view.getPaddingTop(), 0, view.getPaddingBottom());
+        }
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            AndroidUtilities.setViewLayoutMargins(view, 0, lp.topMargin, 0, lp.bottomMargin);
+        }
     }
 
     //region Gravity

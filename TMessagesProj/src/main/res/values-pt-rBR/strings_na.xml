@@ -408,7 +408,6 @@
     <string name="ClassicHeader">Barra de título clássica</string>
     <string name="ClassicTopPanels">Barras clássicas de mensagens fixadas e reprodução</string>
     <string name="ClassicInput">Painel de entrada clássico</string>
-    <string name="ClassicTabs">Navegação inferior no estilo Miuix</string>
-    <string name="ClassicTabColors">Cores de navegação clássicas</string>
+    <string name="MainTabsStyleClassic">Clássico</string>
     <string name="ClassicSettingsIcons">Ícones de configurações circulares de cor sólida</string>
 </resources>

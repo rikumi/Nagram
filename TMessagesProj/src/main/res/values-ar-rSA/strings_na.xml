@@ -408,7 +408,6 @@
     <string name="ClassicHeader">شريط عنوان كلاسيكي</string>
     <string name="ClassicTopPanels">شريطا التثبيت والتشغيل الكلاسيكيان</string>
     <string name="ClassicInput">لوحة إدخال كلاسيكية</string>
-    <string name="ClassicTabs">شريط تنقل سفلي بنمط Miuix</string>
-    <string name="ClassicTabColors">ألوان تنقل كلاسيكية</string>
+    <string name="MainTabsStyleClassic">كلاسيكي</string>
     <string name="ClassicSettingsIcons">أيقونات إعدادات دائرية بلون موحد</string>
 </resources>

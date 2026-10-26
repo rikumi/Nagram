@@ -1,7 +1,5 @@
 package org.telegram.ui;
 
-import xyz.nextalone.nagram.ClassicUi;
-
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.lerp;
 
@@ -34,6 +32,8 @@ import java.util.Set;
 import me.vkryl.android.animator.BoolAnimator;
 import me.vkryl.android.animator.ListAnimator;
 import me.vkryl.android.util.ClickHelper;
+import xyz.nextalone.nagram.MainTabsStyle;
+import xyz.nextalone.nagram.NaConfig;
 
 @SuppressLint("ViewConstructor")
 public class MainTabsLayout extends AnimatedLinearLayout {
@@ -134,7 +134,7 @@ public class MainTabsLayout extends AnimatedLinearLayout {
             }
         }
 
-        if (ClassicUi.ClassicTabs && visibleChildCount > 0) {
+        if (MainTabsStyle.isFlat(NaConfig.INSTANCE.getMainTabsStyle().Int()) && visibleChildCount > 0) {
             int index = 0;
             for (int a = 0; a < getChildCount(); a++) {
                 if (!isViewVisible(getChildAt(a))) continue;
@@ -320,7 +320,7 @@ public class MainTabsLayout extends AnimatedLinearLayout {
 
     @Override
     protected void dispatchDraw(@NonNull Canvas canvas) {
-        if (drawCustomSelector && !ClassicUi.ClassicTabColors) {
+        if (drawCustomSelector && !(NaConfig.INSTANCE.getMainTabsStyle().Int() == MainTabsStyle.MIUIX.getValue())) {
             final float x = animatedLongSelectedViewCenterX + animatedLongSelectedViewOffsetX;
             final float sWidth = getInterpolatedWidthByX(x, this);
             final float sHeight = getHeight() - getPaddingTop() - getPaddingBottom();

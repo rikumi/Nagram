@@ -408,7 +408,6 @@
     <string name="ClassicHeader">傳統標題列</string>
     <string name="ClassicTopPanels">傳統置頂列與播放列</string>
     <string name="ClassicInput">傳統輸入列</string>
-    <string name="ClassicTabs">Miuix 風格底列</string>
-    <string name="ClassicTabColors">傳統底列配色</string>
+    <string name="MainTabsStyleClassic">經典</string>
     <string name="ClassicSettingsIcons">純色圓形設定圖示</string>
 </resources>

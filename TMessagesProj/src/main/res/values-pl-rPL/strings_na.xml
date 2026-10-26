@@ -408,7 +408,6 @@
     <string name="ClassicHeader">Klasyczny pasek tytułu</string>
     <string name="ClassicTopPanels">Klasyczne paski przypiętych wiadomości i odtwarzania</string>
     <string name="ClassicInput">Klasyczny panel wprowadzania</string>
-    <string name="ClassicTabs">Nawigacja dolna w stylu Miuix</string>
-    <string name="ClassicTabColors">Klasyczne kolory nawigacji</string>
+    <string name="MainTabsStyleClassic">Klasyczny</string>
     <string name="ClassicSettingsIcons">Jednokolorowe okrągłe ikony ustawień</string>
 </resources>
