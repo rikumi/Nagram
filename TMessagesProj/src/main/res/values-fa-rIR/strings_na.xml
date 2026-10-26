@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Open Community Only with the Bottom-Right Arrow</string>
     <string name="UseSystemNotificationColor">Use system notification color</string>
     <string name="AvatarCorners">Avatar corners</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">نوار عنوان کلاسیک</string>
+    <string name="ClassicTopPanels">نوارهای کلاسیک پیام سنجاق‌شده و پخش</string>
+    <string name="ClassicInput">پنل ورودی کلاسیک</string>
+    <string name="ClassicTabs">نوار پیمایش پایین کلاسیک</string>
+    <string name="ClassicTabColors">رنگ‌های پیمایش کلاسیک</string>
+    <string name="ClassicSettingsIcons">نمادهای دایره‌ای تک‌رنگ تنظیمات</string>
 </resources>

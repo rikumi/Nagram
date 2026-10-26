@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">仅在点击头像右下角箭头时打开社区页</string>
     <string name="UseSystemNotificationColor">通知图标使用系统主题颜色</string>
     <string name="AvatarCorners">头像圆角</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">传统标题栏</string>
+    <string name="ClassicTopPanels">传统置顶栏与播放栏</string>
+    <string name="ClassicInput">传统输入栏</string>
+    <string name="ClassicTabs">传统首页底栏</string>
+    <string name="ClassicTabColors">传统底栏配色</string>
+    <string name="ClassicSettingsIcons">纯色圆形设置图标</string>
 </resources>

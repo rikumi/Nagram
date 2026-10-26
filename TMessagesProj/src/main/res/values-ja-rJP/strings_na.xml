@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">右下の矢印をタップした場合のみコミュニティを開く</string>
     <string name="UseSystemNotificationColor">システム通知の色を使用</string>
     <string name="AvatarCorners">アバターの角</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">従来のタイトルバー</string>
+    <string name="ClassicTopPanels">従来のピン留め・再生バー</string>
+    <string name="ClassicInput">従来の入力欄</string>
+    <string name="ClassicTabs">従来の下部ナビゲーション</string>
+    <string name="ClassicTabColors">従来のナビゲーション配色</string>
+    <string name="ClassicSettingsIcons">単色で円形の設定アイコン</string>
 </resources>

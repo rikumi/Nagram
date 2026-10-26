@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Community nur mit dem Pfeil unten rechts öffnen</string>
     <string name="UseSystemNotificationColor">System-Benachrichtigungsfarbe verwenden</string>
     <string name="AvatarCorners">Avatar-Ecken</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Klassische Titelleiste</string>
+    <string name="ClassicTopPanels">Klassische Leisten für angeheftete Nachrichten und Wiedergabe</string>
+    <string name="ClassicInput">Klassisches Eingabefeld</string>
+    <string name="ClassicTabs">Klassische untere Navigation</string>
+    <string name="ClassicTabColors">Klassische Navigationsfarben</string>
+    <string name="ClassicSettingsIcons">Einfarbige runde Einstellungssymbole</string>
 </resources>

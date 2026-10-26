@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Avaa yhteisö vain alaoikeanpuoleisella nuolella</string>
     <string name="UseSystemNotificationColor">Käytä järjestelmän ilmoitusväriä</string>
     <string name="AvatarCorners">Hahmon kulmat</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Perinteinen otsikkopalkki</string>
+    <string name="ClassicTopPanels">Perinteiset kiinnitettyjen viestien ja toiston palkit</string>
+    <string name="ClassicInput">Perinteinen syöttöpaneeli</string>
+    <string name="ClassicTabs">Perinteinen alapalkin navigointi</string>
+    <string name="ClassicTabColors">Perinteiset navigointivärit</string>
+    <string name="ClassicSettingsIcons">Yksiväriset pyöreät asetuskuvakkeet</string>
 </resources>

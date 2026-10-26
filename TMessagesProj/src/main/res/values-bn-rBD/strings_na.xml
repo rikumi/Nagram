@@ -357,4 +357,12 @@
     <string name="LiquidGlassAngle">Liquid Glass angle</string>
     <string name="LiquidGlassIntensity">Liquid Glass intensity</string>
     <string name="DisableGooeyAvatarAnimation">Disable \"Gooey\" avatar animation</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">ক্লাসিক শিরোনাম বার</string>
+    <string name="ClassicTopPanels">ক্লাসিক পিন করা বার ও প্লেব্যাক বার</string>
+    <string name="ClassicInput">ক্লাসিক ইনপুট প্যানেল</string>
+    <string name="ClassicTabs">ক্লাসিক নিচের নেভিগেশন বার</string>
+    <string name="ClassicTabColors">ক্লাসিক নেভিগেশন রং</string>
+    <string name="ClassicSettingsIcons">একরঙা বৃত্তাকার সেটিংস আইকন</string>
 </resources>

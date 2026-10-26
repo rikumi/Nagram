@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Åpne samfunnet, kun med nederste høyre pil</string>
     <string name="UseSystemNotificationColor">Bruk farge for systemvarsling</string>
     <string name="AvatarCorners">Avatar hjørner</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Klassisk tittellinje</string>
+    <string name="ClassicTopPanels">Klassiske linjer for festede meldinger og avspilling</string>
+    <string name="ClassicInput">Klassisk inndatafelt</string>
+    <string name="ClassicTabs">Klassisk navigasjon nederst</string>
+    <string name="ClassicTabColors">Klassiske navigasjonsfarger</string>
+    <string name="ClassicSettingsIcons">Ensfargede runde innstillingsikoner</string>
 </resources>

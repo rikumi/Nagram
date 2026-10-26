@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Άνοιγμα Κοινότητας μόνο με το Βέλος Κάτω Δεξιάς</string>
     <string name="UseSystemNotificationColor">Χρήση χρώματος ειδοποίησης συστήματος</string>
     <string name="AvatarCorners">Γωνίες άβαταρ</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Κλασική γραμμή τίτλου</string>
+    <string name="ClassicTopPanels">Κλασικές γραμμές καρφιτσωμένων μηνυμάτων και αναπαραγωγής</string>
+    <string name="ClassicInput">Κλασικό πλαίσιο εισαγωγής</string>
+    <string name="ClassicTabs">Κλασική κάτω γραμμή πλοήγησης</string>
+    <string name="ClassicTabColors">Κλασικά χρώματα πλοήγησης</string>
+    <string name="ClassicSettingsIcons">Μονόχρωμα κυκλικά εικονίδια ρυθμίσεων</string>
 </resources>

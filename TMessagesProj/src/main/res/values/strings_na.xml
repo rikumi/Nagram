@@ -404,4 +404,12 @@
     <string name="CommunityAvatarTapActionChat">Always Open Chat</string>
     <string name="CommunityAvatarTapActionArrow">Open Community Only with the Bottom-Right Arrow</string>
     <string name="UseSystemNotificationColor">Use system notification color</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Classic header</string>
+    <string name="ClassicTopPanels">Classic pinned and playback bars</string>
+    <string name="ClassicInput">Classic input panel</string>
+    <string name="ClassicTabs">Classic bottom navigation</string>
+    <string name="ClassicTabColors">Classic navigation colors</string>
+    <string name="ClassicSettingsIcons">Flat circular settings icons</string>
 </resources>

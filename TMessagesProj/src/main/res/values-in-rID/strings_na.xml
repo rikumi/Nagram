@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Open Community Only with the Bottom-Right Arrow</string>
     <string name="UseSystemNotificationColor">Use system notification color</string>
     <string name="AvatarCorners">Avatar corners</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Bilah judul klasik</string>
+    <string name="ClassicTopPanels">Bilah pesan tersemat dan pemutaran klasik</string>
+    <string name="ClassicInput">Panel masukan klasik</string>
+    <string name="ClassicTabs">Navigasi bawah klasik</string>
+    <string name="ClassicTabColors">Warna navigasi klasik</string>
+    <string name="ClassicSettingsIcons">Ikon pengaturan bulat berwarna polos</string>
 </resources>

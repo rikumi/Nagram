@@ -32,7 +32,6 @@ object NaConfig {
     val classicTabs = addConfig("ClassicTabs", ConfigItem.configTypeBool, false)
     val classicTabColors = addConfig("ClassicTabColors", ConfigItem.configTypeBool, false)
     val classicSettingsIcons = addConfig("ClassicSettingsIcons", ConfigItem.configTypeBool, false)
-    val disableLiquidGlassHighlight = addConfig("DisableLiquidGlassHighlight", ConfigItem.configTypeBool, false)
 
     // Configs
     val forceCopy =

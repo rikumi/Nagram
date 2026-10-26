@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Open een gemeenschap alleen met een pijl onder rechts</string>
     <string name="UseSystemNotificationColor">Gebruik systeem notificatie kleur</string>
     <string name="AvatarCorners">Avatar hoeken</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Klassieke titelbalk</string>
+    <string name="ClassicTopPanels">Klassieke balken voor vastgezette berichten en afspelen</string>
+    <string name="ClassicInput">Klassiek invoerpaneel</string>
+    <string name="ClassicTabs">Klassieke navigatie onderaan</string>
+    <string name="ClassicTabColors">Klassieke navigatiekleuren</string>
+    <string name="ClassicSettingsIcons">Effen ronde instellingenpictogrammen</string>
 </resources>

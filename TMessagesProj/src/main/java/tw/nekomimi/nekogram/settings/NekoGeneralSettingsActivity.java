@@ -214,6 +214,7 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
     private final AbstractConfigCell divider4 = cellGroup.appendCell(new ConfigCellDivider());
 
     private final AbstractConfigCell header5 = cellGroup.appendCell(new ConfigCellHeader(LocaleController.getString("Appearance")));
+    private final AbstractConfigCell classicSettingsIconsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicSettingsIcons()));
     private final AbstractConfigCell typefaceRow = cellGroup.appendCell(new ConfigCellTextCheck(NekoConfig.typeface));
     private final AbstractConfigCell useSystemFontInTitleRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getUseSystemFontInTitle()));
     private final AbstractConfigCell transparentStatusBarRow = cellGroup.appendCell(new ConfigCellTextCheck(NekoConfig.transparentStatusBar));
@@ -255,6 +256,8 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
     private final AbstractConfigCell chatBlurAlphaValueRow = cellGroup.appendCell(new ConfigCellCustom("ChatBlurAlphaValue", ConfigCellCustom.CUSTOM_ITEM_CharBlurAlpha, NekoConfig.forceBlurInChat.Bool()));
 
     private final AbstractConfigCell disableDialogsFloatingButtonRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getDisableDialogsFloatingButton()));
+    private final AbstractConfigCell classicHeaderRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicHeader()));
+    private final AbstractConfigCell classicTopPanelsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTopPanels()));
     private final AbstractConfigCell centerActionBarTitleRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getCenterActionBarTitle()));
     private final AbstractConfigCell disablePredictiveBackAnimationRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getDisablePredictiveBackAnimation()));
     private final AbstractConfigCell mainTabsStyleRow = cellGroup.appendCell(new ConfigCellSelectBox(null, NaConfig.INSTANCE.getMainTabsStyle(),
@@ -263,6 +266,8 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
                     LocaleController.getString(R.string.MainTabsStyleTextFree),
                     LocaleController.getString(R.string.Disable),
             }, null));
+    private final AbstractConfigCell classicTabsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabs()));
+    private final AbstractConfigCell classicTabColorsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabColors()));
     private final AbstractConfigCell hideTabBarPermissionWarningsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getHideTabBarPermissionWarnings()));
     private final AbstractConfigCell showRecentChatsOnTabLongPressRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getShowRecentChatsOnTabLongPress()));
     private final AbstractConfigCell customDialogsMenuRow = cellGroup.appendCell(new ConfigCellSelectBox(NaConfig.INSTANCE.getCustomDialogsMenu().getKey(), null, null, () -> {
@@ -333,14 +338,6 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
     private final AbstractConfigCell dividerAutoDownload = cellGroup.appendCell(new ConfigCellDivider());
 
     // blur
-    private final AbstractConfigCell classicHeaderRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicHeader()));
-    private final AbstractConfigCell classicTopPanelsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTopPanels()));
-    private final AbstractConfigCell classicInputRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicInput()));
-    private final AbstractConfigCell classicTabsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabs()));
-    private final AbstractConfigCell classicTabColorsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicTabColors()));
-    private final AbstractConfigCell classicSettingsIconsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getClassicSettingsIcons()));
-    private final AbstractConfigCell disableLiquidGlassHighlightRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getDisableLiquidGlassHighlight()));
-    private final AbstractConfigCell dividerClassic = cellGroup.appendCell(new ConfigCellDivider());
 
     private final AbstractConfigCell headerBlur = cellGroup.appendCell(new ConfigCellHeader(LocaleController.getString(R.string.LiteOptionsBlur2)));
     private final AbstractConfigCell disableGlareEffectsRow = cellGroup.appendCell(new ConfigCellTextCheck(NaConfig.INSTANCE.getDisableGlareEffects()));
@@ -482,10 +479,14 @@ private final AbstractConfigCell defaultHlsVideoQualityRow = cellGroup.appendCel
 
         // Cells: Set OnSettingChanged Callbacks
         cellGroup.callBackSettingsChanged = (key, newValue) -> {
-        if (key.startsWith("Classic") || key.equals("DisableLiquidGlassHighlight")) {
-            tooltip.showWithAction(0, UndoView.ACTION_NEED_RESATRT, null, null);
-            return;
-        }
+            if (key.equals(NaConfig.INSTANCE.getClassicHeader().getKey())
+                    || key.equals(NaConfig.INSTANCE.getClassicTopPanels().getKey())
+                    || key.equals(NaConfig.INSTANCE.getClassicTabs().getKey())
+                    || key.equals(NaConfig.INSTANCE.getClassicTabColors().getKey())
+                    || key.equals(NaConfig.INSTANCE.getClassicSettingsIcons().getKey())) {
+                tooltip.showWithAction(0, UndoView.ACTION_NEED_RESATRT, null, null);
+                return;
+            }
             if (key.equals(NaConfig.INSTANCE.getCustomIpStrategy().getKey())) {
                 ConnectionsManager.ipStrategy = -1;
                 for (int a : SharedConfig.activeAccounts) {

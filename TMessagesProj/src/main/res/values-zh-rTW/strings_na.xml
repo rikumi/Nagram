@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">僅點擊頭像右下角箭頭時開啟社群頁面</string>
     <string name="UseSystemNotificationColor">Use system notification color</string>
     <string name="AvatarCorners">Avatar corners</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">傳統標題列</string>
+    <string name="ClassicTopPanels">傳統置頂列與播放列</string>
+    <string name="ClassicInput">傳統輸入列</string>
+    <string name="ClassicTabs">傳統首頁底列</string>
+    <string name="ClassicTabColors">傳統底列配色</string>
+    <string name="ClassicSettingsIcons">純色圓形設定圖示</string>
 </resources>

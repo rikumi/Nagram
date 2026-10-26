@@ -16,7 +16,6 @@ public final class ClassicUi {
     public static final boolean ClassicTabs = NaConfig.INSTANCE.getClassicTabs().Bool();
     public static final boolean ClassicTabColors = NaConfig.INSTANCE.getClassicTabColors().Bool();
     public static final boolean ClassicSettingsIcons = NaConfig.INSTANCE.getClassicSettingsIcons().Bool();
-    public static final boolean DisableLiquidGlassHighlight = NaConfig.INSTANCE.getDisableLiquidGlassHighlight().Bool();
 
     public static int dividerColor(int background) {
         float[] hsl = new float[3];

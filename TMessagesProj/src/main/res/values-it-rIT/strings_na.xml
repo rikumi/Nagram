@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Apri solo la comunità con la freccia in basso a destra</string>
     <string name="UseSystemNotificationColor">Usa colore notifica di sistema</string>
     <string name="AvatarCorners">Angoli avatar</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Barra del titolo classica</string>
+    <string name="ClassicTopPanels">Barre classiche dei messaggi fissati e di riproduzione</string>
+    <string name="ClassicInput">Pannello di inserimento classico</string>
+    <string name="ClassicTabs">Navigazione inferiore classica</string>
+    <string name="ClassicTabColors">Colori di navigazione classici</string>
+    <string name="ClassicSettingsIcons">Icone delle impostazioni circolari a tinta unita</string>
 </resources>

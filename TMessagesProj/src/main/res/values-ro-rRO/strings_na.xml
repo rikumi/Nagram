@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Deschide comunitatea doar cu săgeata de jos</string>
     <string name="UseSystemNotificationColor">Folosește culoarea notificării sistemului</string>
     <string name="AvatarCorners">Colţuri Avatar</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Bară de titlu clasică</string>
+    <string name="ClassicTopPanels">Bare clasice pentru mesaje fixate și redare</string>
+    <string name="ClassicInput">Panou de introducere clasic</string>
+    <string name="ClassicTabs">Navigare inferioară clasică</string>
+    <string name="ClassicTabColors">Culori clasice de navigare</string>
+    <string name="ClassicSettingsIcons">Pictograme de setări circulare, într-o singură culoare</string>
 </resources>

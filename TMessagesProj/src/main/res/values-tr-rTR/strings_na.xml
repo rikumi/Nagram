@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Open Community Only with the Bottom-Right Arrow</string>
     <string name="UseSystemNotificationColor">Use system notification color</string>
     <string name="AvatarCorners">Avatar corners</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Klasik başlık çubuğu</string>
+    <string name="ClassicTopPanels">Klasik sabitlenmiş mesaj ve oynatma çubukları</string>
+    <string name="ClassicInput">Klasik giriş paneli</string>
+    <string name="ClassicTabs">Klasik alt gezinme</string>
+    <string name="ClassicTabColors">Klasik gezinme renkleri</string>
+    <string name="ClassicSettingsIcons">Düz renkli yuvarlak ayar simgeleri</string>
 </resources>

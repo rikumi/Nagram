@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Открыть сообщество только с помощью нижней правой стрелки</string>
     <string name="UseSystemNotificationColor">Использовать цвет уведомлений системы</string>
     <string name="AvatarCorners">Углы аватара</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Классическая строка заголовка</string>
+    <string name="ClassicTopPanels">Классические панели закреплённых сообщений и воспроизведения</string>
+    <string name="ClassicInput">Классическая панель ввода</string>
+    <string name="ClassicTabs">Классическая нижняя навигация</string>
+    <string name="ClassicTabColors">Классические цвета навигации</string>
+    <string name="ClassicSettingsIcons">Одноцветные круглые значки настроек</string>
 </resources>

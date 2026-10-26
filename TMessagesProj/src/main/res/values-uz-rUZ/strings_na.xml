@@ -208,4 +208,12 @@
     <string name="ShowRecentChatsInSidebar">Show Recent Chats in Sidebar</string>
     <string name="DeleteRecentChatMessage">Are you sure you want to remove %1$s from recent chats?</string>
     <string name="DeleteRecentChatTooltip">Deleted this chat</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Klassik sarlavha paneli</string>
+    <string name="ClassicTopPanels">Klassik qadalgan xabar va ijro panellari</string>
+    <string name="ClassicInput">Klassik kiritish paneli</string>
+    <string name="ClassicTabs">Klassik quyi navigatsiya</string>
+    <string name="ClassicTabColors">Klassik navigatsiya ranglari</string>
+    <string name="ClassicSettingsIcons">Bir rangli doira shaklidagi sozlamalar belgilari</string>
 </resources>

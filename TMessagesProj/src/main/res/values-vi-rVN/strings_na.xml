@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Open Community Only with the Bottom-Right Arrow</string>
     <string name="UseSystemNotificationColor">Use system notification color</string>
     <string name="AvatarCorners">Avatar corners</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Thanh tiêu đề cổ điển</string>
+    <string name="ClassicTopPanels">Thanh tin nhắn đã ghim và phát lại cổ điển</string>
+    <string name="ClassicInput">Khung nhập cổ điển</string>
+    <string name="ClassicTabs">Thanh điều hướng dưới cùng cổ điển</string>
+    <string name="ClassicTabColors">Màu điều hướng cổ điển</string>
+    <string name="ClassicSettingsIcons">Biểu tượng cài đặt hình tròn đồng màu</string>
 </resources>

@@ -357,4 +357,12 @@
     <string name="LiquidGlassAngle">Liquid Glass angle</string>
     <string name="LiquidGlassIntensity">Liquid Glass intensity</string>
     <string name="DisableGooeyAvatarAnimation">Disable \"Gooey\" avatar animation</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Bar tajuk klasik</string>
+    <string name="ClassicTopPanels">Bar mesej disemat dan main balik klasik</string>
+    <string name="ClassicInput">Panel input klasik</string>
+    <string name="ClassicTabs">Navigasi bawah klasik</string>
+    <string name="ClassicTabColors">Warna navigasi klasik</string>
+    <string name="ClassicSettingsIcons">Ikon tetapan bulat berwarna sekata</string>
 </resources>

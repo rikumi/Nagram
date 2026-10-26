@@ -403,4 +403,12 @@
     <string name="CommunityAvatarTapActionArrow">Öppna gemenskap endast med den nedre högra pilen</string>
     <string name="UseSystemNotificationColor">Använd systemets aviseringsfärg</string>
     <string name="AvatarCorners">Avatar hörn</string>
+
+    <!-- Classic UI -->
+    <string name="ClassicHeader">Klassisk namnlist</string>
+    <string name="ClassicTopPanels">Klassiska fält för fästa meddelanden och uppspelning</string>
+    <string name="ClassicInput">Klassiskt inmatningsfält</string>
+    <string name="ClassicTabs">Klassisk navigering längst ned</string>
+    <string name="ClassicTabColors">Klassiska navigeringsfärger</string>
+    <string name="ClassicSettingsIcons">Enfärgade runda inställningsikoner</string>
 </resources>
